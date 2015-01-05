@@ -1,0 +1,13 @@
+{
+    "name": "ttree/writer",
+    "type": "typo3-flow-package",
+    "description": "TYPO3 Neos focus editing mode inspired by iA Writer.",
+    "require": {
+        "typo3/flow": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Ttree\\Writer": "Classes"
+        }
+    }
+}

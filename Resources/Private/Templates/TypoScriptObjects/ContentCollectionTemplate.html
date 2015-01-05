@@ -1,0 +1,9 @@
+{namespace ts=TYPO3\TypoScript\ViewHelpers}
+<div class="writer-content-contentcollection-container">
+	<f:if condition="{showName}">
+		<header>{node.name}</header>
+	</f:if>
+	<div class="writer-content-contentcollection-content">
+		{columnContent -> f:format.raw()}
+	</div>
+</div>

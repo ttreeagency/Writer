@@ -1,0 +1,45 @@
+prototype(Ttree.Writer:GeneralContentCollectionRendering) >
+prototype(Ttree.Writer:GeneralContentCollectionRendering) < prototype(TYPO3.TypoScript:Template) {
+	templatePath = 'resource://Ttree.Writer/Private/Templates/TypoScriptObjects/GeneralContentCollectionRendering.html'
+	@override.singleCollection = ${Configuration.setting('Ttree.Writer.singleCollection')}
+	columns = TYPO3.TypoScript:Collection {
+		collection = ${singleCollection ? q(node).children('[instanceof TYPO3.Neos:ContentCollection][_name = ' + singleCollection + ']') : q(node).children('[instanceof TYPO3.Neos:ContentCollection]')}
+		itemName = 'node'
+		itemRenderer = Ttree.Writer:ContentCollection
+	}
+}
+
+prototype(Ttree.Writer:ContentCollection) >
+prototype(Ttree.Writer:ContentCollection) < prototype(TYPO3.TypoScript:Template) {
+	templatePath = 'resource://Ttree.Writer/Private/Templates/TypoScriptObjects/ContentCollectionTemplate.html'
+	node = ${node}
+	showName = ${Configuration.setting('Ttree.Writer.singleCollection') ? FALSE : TRUE}
+	attributes = TYPO3.TypoScript:Attributes {
+		class = 'column'
+	}
+	columnContent = TYPO3.Neos:ContentCollection {
+		nodePath = '.'
+	}
+}
+
+rawContent >
+rawContent = TYPO3.Neos:Page {
+	head {
+		stylesheets = TYPO3.TypoScript:Template {
+			templatePath = 'resource://Ttree.Writer/Private/Templates/Page/Default.html'
+			sectionName = 'headerIncludes'
+		}
+	}
+
+	bodyTag.attributes.class = 'writer-mode'
+
+	body {
+		templatePath = 'resource://Ttree.Writer/Private/Templates/Page/Default.html'
+		sectionName = 'body'
+
+		allContentCollections = TYPO3.Neos:PrimaryContent {
+			nodePath = '.'
+			default.type = 'Ttree.Writer:GeneralContentCollectionRendering'
+		}
+	}
+}

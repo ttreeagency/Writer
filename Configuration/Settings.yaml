@@ -1,0 +1,16 @@
+TYPO3:
+  Neos:
+
+    typoScript:
+      autoInclude:
+        'Ttree.Writer': TRUE
+
+    userInterface:
+      editPreviewModes:
+        rawContent:
+          title: 'Writer'
+
+Ttree:
+  Writer:
+
+     singleCollection: 'main'

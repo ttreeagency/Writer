@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Writer</title>
+	<f:section name="headerIncludes">
+		<link href='http://fonts.googleapis.com/css?family=Cousine:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="{f:uri.resource(path: 'Styles/Writer.css', package: 'Ttree.Writer')}" />
+	</f:section>
+</head>
+<body>
+<f:section name="body">
+	<div id="writter-content-container">
+		{allContentCollections -> f:format.raw()}
+	</div>
+</f:section>
+</body>
+</html>
