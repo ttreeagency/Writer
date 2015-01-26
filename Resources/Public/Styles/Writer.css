@@ -11,8 +11,8 @@ body {
   background-color: #f5f5f5;
 }
 
-#writter-container {
-  padding: 1px 20px;
+#writer-container {
+  padding: 1px 80px;
   background-color: #f5f5f5;
 }
 
@@ -33,6 +33,7 @@ figure {
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
+  font-size: 24px;
 }
 
 .writer-content-contentcollection-container > header {

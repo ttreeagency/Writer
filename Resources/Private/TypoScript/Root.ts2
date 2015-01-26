@@ -25,11 +25,22 @@ prototype(Ttree.Writer:ContentCollection) < prototype(TYPO3.TypoScript:Template)
 rawContent >
 rawContent = TYPO3.Neos:Page {
 	head {
-		stylesheets = TYPO3.TypoScript:Template {
-			templatePath = 'resource://Ttree.Writer/Private/Templates/Page/Default.html'
-			sectionName = 'headerIncludes'
+		writerBackendHeader = TYPO3.TypoScript:Template {
+			@position = 'after neosBackendHeader'
+			templatePath = 'resource://Ttree.Writer/Private/Templates/TypoScriptObjects/WriterBackendHeaderData.html'
+			node = ${node}
+
+			@cache {
+				mode = 'uncached'
+				context {
+					1 = 'node'
+				}
+			}
+			@if.onlyRenderWhenNotInLiveWorkspace = ${node.context.workspace.name != 'live'}
 		}
 	}
+
+
 
 	bodyTag.attributes.class = 'writer-mode'
 
