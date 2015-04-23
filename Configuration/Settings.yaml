@@ -13,4 +13,6 @@ TYPO3:
 Ttree:
   Writer:
 
-     singleCollection: 'main'
+     singleCollection: ~
+     # To display only a single content collection
+     # singleCollection: 'main'
