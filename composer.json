@@ -2,6 +2,7 @@
     "name": "ttree/writer",
     "type": "neos-package",
     "description": "Neos CMS focus editing mode inspired by iA Writer.",
+    "license": "MIT",
     "require": {
         "neos/neos": "^3.0.0"
     },
