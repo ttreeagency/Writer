@@ -1,21 +1,20 @@
 prototype(Ttree.Writer:RawContent) < prototype(Neos.Fusion:Template) {
-	templatePath = 'resource://Ttree.Writer/Private/Templates/TypoScriptObjects/RawContent.html'
-	@override.singleCollection = ${Configuration.setting('Ttree.Writer.singleCollection')}
+	templatePath = 'resource://Ttree.Writer/Private/Templates/RawContent.html'
 	columns = Neos.Fusion:Collection {
-		collection = ${singleCollection ? q(node).children('[instanceof Neos.Neos:ContentCollection][_name = ' + singleCollection + ']') : q(node).children('[instanceof Neos.Neos:ContentCollection]')}
+		collection = ${Configuration.setting('Ttree.Writer.singleCollection') ? q(node).children('[instanceof Neos.Neos:ContentCollection][_name = ' + singleCollection + ']') : q(node).children('[instanceof Neos.Neos:ContentCollection]')}
 		itemName = 'node'
 		itemRenderer = Ttree.Writer:ContentCollection
 	}
 }
 
 prototype(Ttree.Writer:ContentCollection) < prototype(Neos.Fusion:Template) {
-	templatePath = 'resource://Ttree.Writer/Private/Templates/TypoScriptObjects/ContentCollectionTemplate.html'
+	templatePath = 'resource://Ttree.Writer/Private/Templates/ContentCollectionTemplate.html'
 
 	node = ${node}
 
 	title = ${documentNode.label}
 
-	showName = ${Configuration.setting('Ttree.Writer.singleCollection') ? FALSE : TRUE}
+	showName = ${Configuration.setting('Ttree.Writer.singleCollection') ? false : true}
 
 	attributes = Neos.Fusion:Attributes {
 		class = 'column'
@@ -31,7 +30,7 @@ rawContent = Neos.Neos:Page {
 	head {
 		writerBackendHeader = Neos.Fusion:Template {
 			@position = 'after neosBackendHeader'
-			templatePath = 'resource://Ttree.Writer/Private/Templates/TypoScriptObjects/WriterBackendHeaderData.html'
+			templatePath = 'resource://Ttree.Writer/Private/Templates/WriterBackendHeaderData.html'
 			node = ${node}
 
 			@cache {
@@ -40,6 +39,7 @@ rawContent = Neos.Neos:Page {
 					1 = 'node'
 				}
 			}
+
 			@if.onlyRenderWhenNotInLiveWorkspace = ${node.context.workspace.name != 'live'}
 		}
 	}

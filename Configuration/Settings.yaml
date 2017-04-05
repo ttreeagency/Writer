@@ -1,13 +1,15 @@
 
 Ttree:
   Writer:
-    singleCollection: null
+    singleCollection: false
+
 Neos:
   Neos:
     userInterface:
       editPreviewModes:
         rawContent:
           title: Writer
+
     fusion:
       autoInclude:
         Ttree.Writer: true
