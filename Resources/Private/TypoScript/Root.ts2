@@ -1,14 +1,14 @@
-prototype(Ttree.Writer:RawContent) < prototype(TYPO3.TypoScript:Template) {
+prototype(Ttree.Writer:RawContent) < prototype(Neos.Fusion:Template) {
 	templatePath = 'resource://Ttree.Writer/Private/Templates/TypoScriptObjects/RawContent.html'
 	@override.singleCollection = ${Configuration.setting('Ttree.Writer.singleCollection')}
-	columns = TYPO3.TypoScript:Collection {
+	columns = Neos.Fusion:Collection {
 		collection = ${singleCollection ? q(node).children('[instanceof TYPO3.Neos:ContentCollection][_name = ' + singleCollection + ']') : q(node).children('[instanceof TYPO3.Neos:ContentCollection]')}
 		itemName = 'node'
 		itemRenderer = Ttree.Writer:ContentCollection
 	}
 }
 
-prototype(Ttree.Writer:ContentCollection) < prototype(TYPO3.TypoScript:Template) {
+prototype(Ttree.Writer:ContentCollection) < prototype(Neos.Fusion:Template) {
 	templatePath = 'resource://Ttree.Writer/Private/Templates/TypoScriptObjects/ContentCollectionTemplate.html'
 
 	node = ${node}
@@ -17,7 +17,7 @@ prototype(Ttree.Writer:ContentCollection) < prototype(TYPO3.TypoScript:Template)
 
 	showName = ${Configuration.setting('Ttree.Writer.singleCollection') ? FALSE : TRUE}
 
-	attributes = TYPO3.TypoScript:Attributes {
+	attributes = Neos.Fusion:Attributes {
 		class = 'column'
 	}
 
@@ -29,7 +29,7 @@ prototype(Ttree.Writer:ContentCollection) < prototype(TYPO3.TypoScript:Template)
 rawContent >
 rawContent = TYPO3.Neos:Page {
 	head {
-		writerBackendHeader = TYPO3.TypoScript:Template {
+		writerBackendHeader = Neos.Fusion:Template {
 			@position = 'after neosBackendHeader'
 			templatePath = 'resource://Ttree.Writer/Private/Templates/TypoScriptObjects/WriterBackendHeaderData.html'
 			node = ${node}
