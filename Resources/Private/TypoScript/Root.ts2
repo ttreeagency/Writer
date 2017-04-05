@@ -2,7 +2,7 @@ prototype(Ttree.Writer:RawContent) < prototype(Neos.Fusion:Template) {
 	templatePath = 'resource://Ttree.Writer/Private/Templates/TypoScriptObjects/RawContent.html'
 	@override.singleCollection = ${Configuration.setting('Ttree.Writer.singleCollection')}
 	columns = Neos.Fusion:Collection {
-		collection = ${singleCollection ? q(node).children('[instanceof TYPO3.Neos:ContentCollection][_name = ' + singleCollection + ']') : q(node).children('[instanceof TYPO3.Neos:ContentCollection]')}
+		collection = ${singleCollection ? q(node).children('[instanceof Neos.Neos:ContentCollection][_name = ' + singleCollection + ']') : q(node).children('[instanceof Neos.Neos:ContentCollection]')}
 		itemName = 'node'
 		itemRenderer = Ttree.Writer:ContentCollection
 	}
@@ -21,13 +21,13 @@ prototype(Ttree.Writer:ContentCollection) < prototype(Neos.Fusion:Template) {
 		class = 'column'
 	}
 
-	columnContent = TYPO3.Neos:ContentCollection {
+	columnContent = Neos.Neos:ContentCollection {
 		nodePath = '.'
 	}
 }
 
 rawContent >
-rawContent = TYPO3.Neos:Page {
+rawContent = Neos.Neos:Page {
 	head {
 		writerBackendHeader = Neos.Fusion:Template {
 			@position = 'after neosBackendHeader'
@@ -52,7 +52,7 @@ rawContent = TYPO3.Neos:Page {
 		templatePath = 'resource://Ttree.Writer/Private/Templates/Page/Default.html'
 		sectionName = 'body'
 
-		allContentCollections = TYPO3.Neos:PrimaryContent {
+		allContentCollections = Neos.Neos:PrimaryContent {
 			nodePath = '.'
 			default.renderer = Ttree.Writer:RawContent
 		}
