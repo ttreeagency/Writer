@@ -4,10 +4,10 @@ Ttree:
     singleCollection: null
 Neos:
   Neos:
-    typoScript:
-      autoInclude:
-        Ttree.Writer: true
     userInterface:
       editPreviewModes:
         rawContent:
           title: Writer
+    fusion:
+      autoInclude:
+        Ttree.Writer: true
