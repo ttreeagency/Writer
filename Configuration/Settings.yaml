@@ -1,18 +1,13 @@
-TYPO3:
-  Neos:
-
-    typoScript:
-      autoInclude:
-        'Ttree.Writer': TRUE
-
-    userInterface:
-      editPreviewModes:
-        rawContent:
-          title: 'Writer'
 
 Ttree:
   Writer:
-
-     singleCollection: ~
-     # To display only a single content collection
-     # singleCollection: 'main'
+    singleCollection: null
+Neos:
+  Neos:
+    typoScript:
+      autoInclude:
+        Ttree.Writer: true
+    userInterface:
+      editPreviewModes:
+        rawContent:
+          title: Writer
