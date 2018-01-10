@@ -3,8 +3,8 @@
 
 body {
 	margin: 0;
-	font-family: "Cousin", "Courier";
-	font-size: 1em;
+	font-family: "Cousine", "Courier";
+	font-size: 1.5em;
 }
 
 .writer-mode {
@@ -28,12 +28,21 @@ img {
 }
 
 figure {
-	margin: 0;
+	margin: 1em 0;
+}
+
+*[data-__neos-node-contextpath] {
+	margin-bottom: 1em;
+}
+
+*[data-__neos-property] > * {
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
 
 h1, h2, h3, h4, h5, h6 {
-	margin-bottom: 0;
-	font-size: 24px;
+	font-size: 1.5em;
 }
 
 .writer-content-contentcollection-container > header {

@@ -1,0 +1,17 @@
+prototype(Ttree.Writer:ContentCollection) < prototype(Neos.Fusion:Template) {
+	templatePath = 'resource://Ttree.Writer/Private/Fusion/Prototype/ContentCollection/ContentCollection.html'
+
+	node = ${node}
+
+	title = ${documentNode.label}
+
+	showName = ${Configuration.setting('Ttree.Writer.singleCollection') ? false : true}
+
+	attributes = Neos.Fusion:Attributes {
+		class = 'column'
+	}
+
+	columnContent = Neos.Neos:ContentCollection {
+		nodePath = '.'
+	}
+}

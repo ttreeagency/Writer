@@ -1,0 +1,25 @@
+prototype(Ttree.Writer:Page) < prototype(Neos.Neos:Page) {
+	head {
+		writerBackendHeader = Neos.Fusion:Array {
+			webfont = Ttree.StyleSheet:External {
+				uri = 'http://fonts.googleapis.com/css?family=Cousine:400,700,400italic,700italic'
+			}
+			styles = Ttree.StyleSheet:Resource {
+				uri = 'resource://Ttree.Writer/Public/Styles/Writer.css'
+			}
+		}
+	}
+
+	bodyTag.attributes.class = 'writer-mode'
+
+	body = Neos.Fusion:Tag {
+		tagName = 'div'
+		attributes {
+			id = 'writer-container'
+		}
+		content = Neos.Neos:PrimaryContent {
+			nodePath = '.'
+			default.renderer = Ttree.Writer:RawContent
+		}
+	}
+}

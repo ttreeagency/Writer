@@ -4,7 +4,9 @@
     "description": "Neos CMS focus editing mode inspired by iA Writer.",
     "license": "MIT",
     "require": {
-        "neos/neos": "^3.0.0"
+        "neos/neos": "^3.0",
+        "ttree/stylesheet": "^3.0",
+        "ttree/script": "^3.0"
     },
     "autoload": {
         "psr-0": {
