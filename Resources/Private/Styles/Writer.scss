@@ -55,3 +55,9 @@ a {
 .neos-raw-content-hidden {
 	display: none;
 }
+
+.neos-inline-editable {
+	p {
+		line-height: 1.35;
+	}
+}

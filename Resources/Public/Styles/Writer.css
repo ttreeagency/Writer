@@ -3,7 +3,7 @@
 /* Components */
 body {
   margin: 0;
-  font-family: "Cousin", "Courier";
+  font-family: "Cousine", "Courier";
   font-size: 1em;
 }
 
@@ -54,4 +54,18 @@ a {
 
 .neos-raw-content-hidden {
   display: none;
+}
+
+.neos-inline-editable p {
+  line-height: 1.45;
+}
+
+*[data-__neos-fusion-path] {
+	background-color: #C8C8C8;
+	padding: 1rem;
+	margin-bottom: 1rem;
+}
+
+.neos-contentcollection *[data-__neos-fusion-path] {
+	background-color: #D4D4D4;
 }
