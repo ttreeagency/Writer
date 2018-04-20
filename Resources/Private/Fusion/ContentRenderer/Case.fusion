@@ -1,0 +1,11 @@
+prototype(Ttree.Writer:ContentRenderer.Case) < prototype(Neos.Fusion:Case) {
+	customLayout {
+		condition = ${WriterLayout.hasLayout(documentNode)}
+		renderer = Ttree.Writer:ContentRenderer.CustomLayout
+	}
+
+	default {
+		condition = true
+		renderer = Ttree.Writer:ContentRenderer.Default
+	}
+}

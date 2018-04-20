@@ -1,4 +1,4 @@
-include: Prototypes/**/*
+include: **/*
 
 rawContent >
 rawContent = Ttree.Writer:Page

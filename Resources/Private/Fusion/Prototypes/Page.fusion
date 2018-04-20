@@ -14,17 +14,12 @@ prototype(Ttree.Writer:Page) < prototype(Neos.Neos:Page) {
 		}
 	}
 
-
-
 	bodyTag.attributes.class = 'writer-mode'
 
 	body {
 		templatePath = 'resource://Ttree.Writer/Private/Templates/Page/Default.html'
 		sectionName = 'body'
 
-		allContentCollections = Neos.Neos:PrimaryContent {
-			nodePath = '.'
-			default.renderer = Ttree.Writer:RawContent
-		}
+		content = Ttree.Writer:ContentRenderer.Case
 	}
 }

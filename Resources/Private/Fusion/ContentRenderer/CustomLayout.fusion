@@ -1,0 +1,33 @@
+prototype(Ttree.Writer:ContentRenderer.CustomLayout) < prototype(Neos.Fusion:Component) {
+	content = Neos.Fusion:Collection {
+		collection = ${WriterLayout.getLayout(documentNode)}
+		itemKey = 'blockName'
+		itemName = 'configuration'
+		itemRenderer = Ttree.Writer:ContentRenderer.CustomLayoutContentCase
+	}
+
+	renderer = afx`
+	<div id="writer-container">
+		<div class="writer-content-contentcollections">
+			<div class="writer-content-contentcollection-container">
+				{props.content}
+			</div>
+		</div>
+	</div>
+	`
+}
+
+prototype(Ttree.Writer:ContentRenderer.CustomLayoutContentCase) < prototype(Neos.Fusion:Case) {
+	property {
+		condition = ${WriterLayout.getBlockType(documentNode, blockName) == 'property'}
+		renderer = Medialib.StructuredEditing:Block.Property
+	}
+	childNode {
+		condition = ${WriterLayout.getBlockType(documentNode, blockName) == 'childNode'}
+		renderer = Medialib.StructuredEditing:Block.ChildNode
+	}
+	default {
+		condition = ${true}
+		renderer = Medialib.StructuredEditing:Block.Fusion
+	}
+}

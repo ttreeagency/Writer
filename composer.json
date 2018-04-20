@@ -9,8 +9,8 @@
         "neos/fusion-afx": "~1.0"
     },
     "autoload": {
-        "psr-0": {
-            "Ttree\\Writer": "Classes"
+        "psr-4": {
+            "Ttree\\Writer\\": "Classes"
         }
     },
     "extra": {
