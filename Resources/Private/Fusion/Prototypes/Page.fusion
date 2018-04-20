@@ -1,9 +1,7 @@
 prototype(Ttree.Writer:Page) < prototype(Neos.Neos:Page) {
 	head {
-		writerBackendHeader = Neos.Fusion:Template {
+		writerBackendHeader = Ttree.Writer:DefaultStylesheets {
 			@position = 'after neosBackendHeader'
-			templatePath = 'resource://Ttree.Writer/Private/Templates/WriterBackendHeaderData.html'
-			node = ${node}
 
 			@cache {
 				mode = 'uncached'

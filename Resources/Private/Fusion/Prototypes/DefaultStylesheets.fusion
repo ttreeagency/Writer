@@ -1,0 +1,8 @@
+prototype(Ttree.Writer:DefaultStylesheets) < prototype(Neos.Fusion:Array) {
+    fonts = Ttree.StyleSheet:External {
+        uri = 'https://fonts.googleapis.com/css?family=Cousine:400,700,400italic,700italic'
+    }
+    core = Ttree.StyleSheet:Resource {
+        uri = 'resource://Ttree.Writer/Public/Styles/Writer.css'
+    }
+}
