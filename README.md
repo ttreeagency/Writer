@@ -1,6 +1,8 @@
 Neos CMS focus editing mode inspired by iA Writer
 =================================================
 
+**Big refactoring of the package in progress, current master is not compatible with 2.0**
+
 This package change the default behavior of the Raw Content mode of Neos CMS.
 
 ![Ttree Writer Mode for Neos CMS](Documentation/demo.png)

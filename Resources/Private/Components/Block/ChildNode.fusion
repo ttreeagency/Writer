@@ -1,0 +1,17 @@
+prototype(Ttree.Writer:Block.ChildNode) < prototype(Neos.Fusion:Tag) {
+	@context.node = ${q(node).children(String.split(configuration.render, '.')[1]).get(0)}
+
+	content = Neos.Neos:ContentCase {
+		collection {
+			condition = ${q(node).is('[instanceof Neos.Neos:ContentCollection]')}
+			renderer = Neos.Fusion:Collection {
+				collection = ${q(node).children(String.split(configuration.render, '.')[1])}
+				itemName = 'node'
+				itemRenderer = Ttree.Writer:ContentCollection
+			}
+
+			@position = 'start 99999'
+		}
+	}
+
+}

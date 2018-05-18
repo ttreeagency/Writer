@@ -1,71 +1,64 @@
-/* Color palette */
-/* Sizes & margins */
-/* Components */
 body {
-  margin: 0;
-  font-family: "Cousine", "Courier";
-  font-size: 1em;
+    margin: 0;
+    font-family: "Cousin", "Courier";
+    font-size: 1em;
 }
 
 .writer-mode {
-  background-color: #f5f5f5;
+    background-color: hsl(202.5, 26.7%, 94.1%);
 }
 
 #writer-container {
-  padding: 20px 80px;
-  background-color: #f5f5f5;
+    padding: 10px 4vw;
 }
 
 .writer-content-contentcollections {
-  margin: 0 auto;
-  max-width: 72em;
-  padding: 0 4em;
+    margin: 0 auto;
+    max-width: 72em;
+    padding: 0 4em;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 figure {
-  margin: 0;
+    margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 0;
-  font-size: 24px;
+    margin-bottom: 0;
+    font-size: 24px;
 }
 
 .writer-content-contentcollection-container > header {
-  font-size: 1.6em;
-  color: #5b5b5b;
-  text-transform: uppercase;
-  margin: 60px 0 0;
-  border-bottom: 1px solid #ddd;
+    font-size: 1.6em;
+    color: #999;
+    text-transform: uppercase;
+    margin: 60px 0 0;
+    border-bottom: 1px solid #ddd;
 }
 
 .writer-content-contentcollection-content {
-  padding-top: 20px;
+    padding-top: 20px;
 }
 
-a {
-  color: #007fb2;
+.writer-content-collection-name {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.writer-content-document-label {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 0;
 }
 
 .neos-raw-content-hidden {
-  display: none;
+    display: none;
 }
 
-.neos-inline-editable p {
-  line-height: 1.45;
-}
-
-*[data-__neos-fusion-path] {
-	background-color: #C8C8C8;
-	padding: 1rem;
-	margin-bottom: 1rem;
-}
-
-.neos-contentcollection *[data-__neos-fusion-path] {
-	background-color: #D4D4D4;
+.neos-inline-editable > p {
+    line-height: 1.35;
 }

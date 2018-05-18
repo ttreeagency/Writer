@@ -16,18 +16,3 @@ prototype(Ttree.Writer:ContentRenderer.CustomLayout) < prototype(Neos.Fusion:Com
 	</div>
 	`
 }
-
-prototype(Ttree.Writer:ContentRenderer.CustomLayoutContentCase) < prototype(Neos.Fusion:Case) {
-	property {
-		condition = ${WriterLayout.getBlockType(documentNode, blockName) == 'property'}
-		renderer = Medialib.StructuredEditing:Block.Property
-	}
-	childNode {
-		condition = ${WriterLayout.getBlockType(documentNode, blockName) == 'childNode'}
-		renderer = Medialib.StructuredEditing:Block.ChildNode
-	}
-	default {
-		condition = ${true}
-		renderer = Medialib.StructuredEditing:Block.Fusion
-	}
-}

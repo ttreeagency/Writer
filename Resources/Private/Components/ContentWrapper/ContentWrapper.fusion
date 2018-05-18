@@ -1,0 +1,73 @@
+namespace: F = Neos.Fusion
+
+prototype(Ttree.Writer:ContentWrapper) < prototype(F:Component) {
+    @context.nodeType = ${node.nodeType}
+
+    @styleguide {
+        title = 'Content Wrapper'
+
+        props {
+            propertyName = 'Name'
+            content = 'John Doe'
+            helpContent = ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et ultricies leo. Praesent eget tellus ex. Ut suscipit bibendum magna vulputate fermentum. Nunc at enim sed nulla semper vulputate id quis ipsum. Maecenas nisl sem, mollis sed massa ut, convallis malesuada ante. Nam non gravida quam. Sed non erat eu neque ornare malesuada non luctus purus.'
+            badges {
+                text = F:RawArray {
+                    title = 'Text'
+                }
+                singleLine = F:RawArray {
+                    title = 'Single Line'
+                }
+                required = F:RawArray {
+                    title = 'Required'
+                }
+            }
+            children {
+                one = Ttree.Writer:ContentWrapper {
+                    children = null
+                }
+            }
+        }
+    }
+
+    propertyName = null
+    propertyName.@process {
+        defaultValue = ${nodeType != null ? NodeTypeConfiguration.get(nodeType, 'ui.label') : null}
+        defaultValue.@if.empty = ${String.isBlank(value)}
+    }
+    content = null
+    helpContent = null
+    badges = F:RawArray
+    children = F:RawArray
+
+    renderer = afx`
+        <section class="rContentWrapper">
+            <div class="rContentWrapper__type">
+                <div class="rContentWrapper__editButton" @key="editButton" @if.content={props.editButton}>
+                    {props.editButton}
+                </div>
+                <div class="rContentWrapper__propertyName" @key="name">
+                    {props.propertyName}
+                </div>
+            </div>
+            <ul class="rContentWrapper__infoBlock" @key="infoBlock" @if.children={props.badges != null && Array.length(props.badges) > 0}>
+                <F:Collection collection={props.badges} itemName="badge" @children="itemRenderer">
+                    <li class="rContentWrapper__infoBlockItem">{badge.title}</li>
+                </F:Collection>
+            </ul>
+            <div class="rContentWrapper__content" @key="content" @if.content={props.content}>
+                {props.content}
+            </div>
+            <aside class="rContentWrapper__helpContent" @key="helpContent" @if.helpContent={props.helpContent}>
+                <em>Help</em>: {props.helpContent}
+            </aside>
+            <section class="rContentWrapper__children" @key="children" @if.children={props.children != null && Array.length(props.children) > 0}>
+                <F:Collection collection={props.children} itemName="child" @children="itemRenderer">
+                    {child}
+                </F:Collection>
+            </section>
+            <div class="rContentWrapper__footer" @key="footer" @if.footer={props.footer}>
+                {props.footer}
+            </div>
+        </section>
+    `
+}

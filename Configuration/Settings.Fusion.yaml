@@ -2,3 +2,4 @@ Neos:
   Fusion:
     defaultContext:
       WriterLayout: Ttree\Writer\WriterLayoutHelper
+      NodeTypeConfiguration: Ttree\Writer\NodeTypeConfigurationHelper

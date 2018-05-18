@@ -1,0 +1,21 @@
+namespace: F = Neos.Fusion
+
+prototype(Ttree.Writer:InlineEditable) < prototype(F:Component) {
+    property = null
+    propertyName = null
+    helpContent = null
+    editableNode = ${node}
+    children = F:RawArray
+    badges = F:RawArray
+
+    renderer = Ttree.Writer:ContentWrapper {
+        propertyName = ${props.propertyName}
+        helpContent = ${props.helpContent}
+        content = Neos.Neos:Editable {
+            property = ${props.property}
+            node = ${props.editableNode}
+        }
+        children = ${props.children}
+        badges = ${props.badges}
+    }
+}

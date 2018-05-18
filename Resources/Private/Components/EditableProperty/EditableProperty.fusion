@@ -1,0 +1,45 @@
+namespace: F = Neos.Fusion
+
+prototype(Ttree.Writer:EditableProperty) < prototype(F:Component) {
+    property = null
+    propertyName = null
+    content = null
+    helpContent = null
+    propertyValue = null
+    editableNode = ${node}
+    children = F:RawArray
+    badges = F:RawArray
+
+    renderer = Ttree.Writer:ContentWrapper {
+        propertyName = ${props.propertyName}
+
+        editButton = Neos.Neos:ContentElementEditable {
+            node = ${props.editableNode}
+            property = ${props.property}
+
+            @if.hasStructuredEditing = ${props.property != null && NodeTypeConfiguration.hasStructuredEditing(props.editableNode.nodeType, props.property)}
+        }
+
+        content = F:Case {
+            rawContent {
+                condition = ${props.content != null}
+                renderer = ${props.content}
+            }
+
+            propertyValue {
+                condition = ${props.propertyValue != null}
+                renderer = ${props.propertyValue}
+            }
+
+            default {
+                condition = true
+                renderer = ${q(props.editableNode).property(props.property)}
+            }
+        }
+
+        helpContent = ${props.helpContent}
+
+        children = ${props.children}
+        badges = ${props.badges}
+    }
+}

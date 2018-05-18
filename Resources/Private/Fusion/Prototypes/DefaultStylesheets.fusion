@@ -5,4 +5,8 @@ prototype(Ttree.Writer:DefaultStylesheets) < prototype(Neos.Fusion:Array) {
     core = Ttree.StyleSheet:Resource {
         uri = 'resource://Ttree.Writer/Public/Styles/Writer.css'
     }
+	awesome = Ttree.StyleSheet:Resource {
+		inline = true
+		uri = 'resource://Ttree.Writer/Public/Styles/FontAwesome.css'
+	}
 }

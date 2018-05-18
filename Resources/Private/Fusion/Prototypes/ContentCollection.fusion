@@ -1,5 +1,5 @@
 prototype(Ttree.Writer:ContentCollection) < prototype(Neos.Fusion:Component) {
-	name = ${node.label}
+	name = ${node.name}
 
 	title = ${documentNode.label}
 
@@ -12,10 +12,9 @@ prototype(Ttree.Writer:ContentCollection) < prototype(Neos.Fusion:Component) {
 	renderer = afx`
 		<div class="writer-content-contentcollection-container">
 			<header @if.showName={props.showName}>
-				{props.name}
+				<h1 class="writer-content-document-label">{props.title}</h1>
+				<h2 class="writer-content-collection-name">{props.name}</h2>
 			</header>
-			<h1>{props.title}</h1>
-			<hr/>
 			<div class="writer-content-contentcollection-content">
 				{props.columnContent}
 			</div>

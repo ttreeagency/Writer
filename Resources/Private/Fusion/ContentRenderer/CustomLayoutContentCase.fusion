@@ -1,0 +1,14 @@
+prototype(Ttree.Writer:ContentRenderer.CustomLayoutContentCase) < prototype(Neos.Fusion:Case) {
+	property {
+		condition = ${WriterLayout.getBlockType(documentNode, blockName) == 'property'}
+		renderer = Ttree.Writer:Block.Property
+	}
+	childNode {
+		condition = ${WriterLayout.getBlockType(documentNode, blockName) == 'childNode'}
+		renderer = Ttree.Writer:Block.ChildNode
+	}
+	default {
+		condition = ${true}
+		renderer = Ttree.Writer:Block.Fusion
+	}
+}
