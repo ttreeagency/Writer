@@ -1,7 +1,8 @@
 Neos CMS focus editing mode inspired by iA Writer
 =================================================
 
-**Big refactoring of the package in progress, current master is not compatible with 2.0**
+**Big refactoring of the package in progress, current master is not compatible with 2.0. The upcoming release will require
+Neos 4.0 and the React UI.**
 
 This package change the default behavior of the Raw Content mode of Neos CMS.
 

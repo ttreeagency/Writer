@@ -1,10 +1,10 @@
 {
     "name": "ttree/writer",
     "type": "neos-package",
-    "description": "Neos CMS focus editing mode inspired by iA Writer.",
+    "description": "Neos CMS structured editing mode",
     "license": "MIT",
     "require": {
-        "neos/neos": "~5.0",
+        "neos/neos": "~4.0",
         "ttree/componentsentinel": "^2.0",
         "flowpack/structuredediting": "*",
         "ttree/stylesheet": "~3.0",
