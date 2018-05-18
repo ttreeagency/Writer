@@ -1,0 +1,10 @@
+prototype(Ttree.Writer:Renderer.Property) < prototype(Neos.Fusion:Tag) {
+    content = Neos.Fusion:Case {
+		default {
+			condition = true
+			renderer = Ttree.Writer:Property.InlineEditable {
+				property = ${String.split(configuration.render, '.')[1]}
+			}
+		}
+	}
+}

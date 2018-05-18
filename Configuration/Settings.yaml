@@ -1,8 +1,3 @@
-
-Ttree:
-  Writer:
-    singleCollection: false
-
 Neos:
   Neos:
     userInterface:

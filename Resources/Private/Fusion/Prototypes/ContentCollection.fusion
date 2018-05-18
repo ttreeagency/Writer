@@ -3,15 +3,13 @@ prototype(Ttree.Writer:ContentCollection) < prototype(Neos.Fusion:Component) {
 
 	title = ${documentNode.label}
 
-	showName = ${Configuration.setting('Ttree.Writer.singleCollection') ? false : true}
-
 	columnContent = Neos.Neos:ContentCollection {
 		nodePath = '.'
 	}
 
 	renderer = afx`
 		<div class="writer-content-contentcollection-container">
-			<header @if.showName={props.showName}>
+			<header>
 				<h1 class="writer-content-document-label">{props.title}</h1>
 				<h2 class="writer-content-collection-name">{props.name}</h2>
 			</header>

@@ -1,4 +1,4 @@
-prototype(Ttree.Writer:Block.Fusion) < prototype(Neos.Fusion:Tag) {
+prototype(Ttree.Writer:Renderer.Fusion) < prototype(Neos.Fusion:Tag) {
     content = Neos.Fusion:Renderer {
 		type = ${configuration.render}
 	}

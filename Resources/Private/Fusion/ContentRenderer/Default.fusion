@@ -1,4 +1,0 @@
-prototype(Ttree.Writer:ContentRenderer.Default) < prototype(Neos.Neos:PrimaryContent) {
-	nodePath = '.'
-	default.renderer = Ttree.Writer:RawContent
-}

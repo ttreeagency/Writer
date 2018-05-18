@@ -2,7 +2,7 @@ prototype(Ttree.Writer:RawContent) < prototype(Neos.Fusion:Tag) {
 	attributes.class = 'writer-content-contentcollections'
 
 	content = Neos.Fusion:Collection {
-		collection = ${Configuration.setting('Ttree.Writer.singleCollection') ? q(node).children('[instanceof Neos.Neos:ContentCollection][_name = ' + singleCollection + ']') : q(node).children('[instanceof Neos.Neos:ContentCollection]')}
+		collection = ${q(node).children('[instanceof Neos.Neos:ContentCollection]')}
 		itemName = 'node'
 		itemRenderer = Ttree.Writer:ContentCollection
 	}

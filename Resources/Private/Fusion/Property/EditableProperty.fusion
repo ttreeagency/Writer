@@ -1,6 +1,6 @@
 namespace: F = Neos.Fusion
 
-prototype(Ttree.Writer:EditableProperty) < prototype(F:Component) {
+prototype(Ttree.Writer:Property.Editable) < prototype(F:Component) {
     property = null
     propertyName = null
     content = null

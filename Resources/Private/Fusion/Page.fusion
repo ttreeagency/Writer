@@ -6,7 +6,17 @@ prototype(Ttree.Writer:Page) < prototype(Neos.Neos:Page) {
 	bodyTag.attributes.class = 'writer-mode'
 
 	body = Neos.Fusion:Component {
-		content = Ttree.Writer:ContentRenderer.Case
+		content = Neos.Fusion:Case {
+			customLayout {
+				condition = ${WriterLayout.hasLayout(documentNode)}
+				renderer = Ttree.Writer:ContentRenderer.CustomLayout
+			}
+
+			default {
+				condition = true
+				renderer = Ttree.Writer:ContentRenderer.DefaultLayout
+			}
+		}
 
 		renderer = afx`
 		<div id="writer-container">

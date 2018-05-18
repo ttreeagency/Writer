@@ -3,7 +3,22 @@ prototype(Ttree.Writer:ContentRenderer.CustomLayout) < prototype(Neos.Fusion:Com
 		collection = ${WriterLayout.getLayout(documentNode)}
 		itemKey = 'blockName'
 		itemName = 'configuration'
-		itemRenderer = Ttree.Writer:ContentRenderer.CustomLayoutContentCase
+		itemRenderer = Neos.Fusion:Case {
+			property {
+				condition = ${WriterLayout.getBlockType(documentNode, blockName) == 'property'}
+				renderer = Ttree.Writer:Renderer.Property
+			}
+			childNode {
+				condition = ${WriterLayout.getBlockType(documentNode, blockName) == 'childNode'}
+				renderer = Ttree.Writer:Renderer.ChildNode
+			}
+			default {
+				condition = ${true}
+				renderer = Ttree.Writer:Renderer.Fusion
+			}
+		}
+
+		@process.contentElementWrapping = Neos.Neos:ContentElementWrapping
 	}
 
 	renderer = afx`

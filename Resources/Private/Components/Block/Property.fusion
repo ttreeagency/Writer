@@ -1,5 +1,0 @@
-prototype(Ttree.Writer:Block.Property) < prototype(Neos.Fusion:Tag) {
-    content = Ttree.Writer:InlineEditable {
-		property = ${String.split(configuration.render, '.')[1]}
-	}
-}
