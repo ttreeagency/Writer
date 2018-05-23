@@ -1,0 +1,5 @@
+Neos.Neos:Content:
+  options:
+    fusion:
+      prototypeGenerator:
+        'Ttree\Writer\ContentPrototypeGenerator': true
