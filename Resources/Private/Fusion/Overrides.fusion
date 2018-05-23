@@ -1,0 +1,7 @@
+prototype(Ttree.Writer:Page) {
+	prototype(Neos.Neos:ContentCase) {
+		default {
+			type = ${q(node).property('_nodeType.name') + '.Writer'}
+		}
+	}
+}
