@@ -1,6 +1,6 @@
 prototype(Ttree.Writer:Page) < prototype(Neos.Neos:Page) {
 	head.writerBackendHeader = Ttree.Writer:DefaultStylesheets {
-		@position = 'after neosBackendHeader'
+		@position = 'after stylesheets'
 	}
 
 	bodyTag.attributes.class = 'writer-mode'
