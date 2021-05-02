@@ -12,6 +12,13 @@ prototype(Ttree.Writer:Page) < prototype(Neos.Neos:Page) {
 				renderer = Ttree.Writer:ContentRenderer.CustomLayout
 			}
 
+			conventionBasedLayout {
+				condition = Ttree.Fusion:CanRender {
+					type = ${q(node).property('_nodeType') + '.Writer'}
+				}
+				type = ${q(node).property('_nodeType') + '.Writer'}
+			}
+
 			default {
 				condition = true
 				renderer = Ttree.Writer:ContentRenderer.DefaultLayout
