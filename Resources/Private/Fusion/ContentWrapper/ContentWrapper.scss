@@ -4,11 +4,13 @@
 
   grid-gap: 5px 10px;
   grid-template-areas:
-          "type meta meta"
+          "type type meta"
           "content content content"
           "help help help"
           "children children children"
           "footer footer footer";
+
+  grid-template-columns: 1fr 1fr minmax(100px, 200px);
 
   color: #444;
   font-size: 16px;
@@ -17,20 +19,23 @@
 
   padding: 12px;
 
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   background-color: #EEE;
+
+  overflow: hidden;
 
   &__type {
     display: flex;
     height: 30px;
     grid-area: type;
     z-index: 2;
+    overflow: hidden;
 
     > div {
-      margin-right:10px;
+      margin-right: 10px;
 
       &:last-child {
-        margin-right:0;
+        margin-right: 0;
       }
     }
   }
@@ -41,6 +46,9 @@
   &__propertyName {
     font-weight: 600;
     text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__infoBlock {
@@ -56,7 +64,7 @@
   &__infoBlockItem {
     list-style: none;
     background-color: #444;
-    color: #ffffff;
+    color: #ffffff;
     padding: 0 .4em;
     margin-right: 1em;
     font-size: 12px;
