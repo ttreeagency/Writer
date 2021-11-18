@@ -31,6 +31,6 @@ class ContentPrototypeGenerator implements DefaultPrototypeGeneratorInterface
         $output[] = '    content = \'Configure the prototype <b>' . $prototypeName . '</b>\'';
         $output[] = '}';
 
-        return implode(chr(10), $output);
+        return implode(chr(10), $output) . chr(10) . chr(10);
     }
 }
