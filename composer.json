@@ -4,7 +4,7 @@
     "description": "Neos CMS structured editing mode",
     "license": "MIT",
     "require": {
-        "neos/neos": "^7.0",
+        "neos/neos": "^7.0 || ^8.0",
         "flowpack/structuredediting": "^2.0",
         "ttree/stylesheet": "^3.0",
         "carbon/notification": "~2.2"
