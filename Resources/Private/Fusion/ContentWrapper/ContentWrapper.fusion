@@ -1,6 +1,4 @@
-namespace: F = Neos.Fusion
-
-prototype(Ttree.Writer:ContentWrapper) < prototype(F:Component) {
+prototype(Ttree.Writer:ContentWrapper) < prototype(Neos.Fusion:Component) {
     @context.nodeType = ${node.nodeType}
 
     @styleguide {
@@ -11,13 +9,13 @@ prototype(Ttree.Writer:ContentWrapper) < prototype(F:Component) {
             content = 'John Doe'
             helpContent = ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et ultricies leo. Praesent eget tellus ex. Ut suscipit bibendum magna vulputate fermentum. Nunc at enim sed nulla semper vulputate id quis ipsum. Maecenas nisl sem, mollis sed massa ut, convallis malesuada ante. Nam non gravida quam. Sed non erat eu neque ornare malesuada non luctus purus.'
             badges {
-                text = F:RawArray {
+                text = Neos.Fusion:RawArray {
                     title = 'Text'
                 }
-                singleLine = F:RawArray {
+                singleLine = Neos.Fusion:RawArray {
                     title = 'Single Line'
                 }
-                required = F:RawArray {
+                required = Neos.Fusion:RawArray {
                     title = 'Required'
                 }
             }
@@ -36,36 +34,46 @@ prototype(Ttree.Writer:ContentWrapper) < prototype(F:Component) {
     }
     content = null
     helpContent = null
-    badges = F:RawArray
-    children = F:RawArray
+    badges = Neos.Fusion:RawArray
+    children = Neos.Fusion:RawArray
 
     renderer = afx`
         <section class="rContentWrapper">
             <div class="rContentWrapper__type">
-                <div class="rContentWrapper__editButton" @key="editButton" @if.content={props.editButton}>
+                <div class="rContentWrapper__editButton" @key="editButton"
+                     @if.content={props.editButton}>
                     {props.editButton}
                 </div>
                 <div class="rContentWrapper__propertyName" @key="name">
                     {props.propertyName}
                 </div>
             </div>
-            <ul class="rContentWrapper__infoBlock" @key="infoBlock" @if.children={props.badges != null && Array.length(props.badges) > 0}>
-                <F:Collection collection={props.badges} itemName="badge" @children="itemRenderer">
+            <ul class="rContentWrapper__infoBlock" @key="infoBlock"
+                @if.children={props.badges != null && Array.length(props.badges) > 0}>
+                <Neos.Fusion:Collection collection={props.badges}
+                                        itemName="badge"
+                                        @children="itemRenderer">
                     <li class="rContentWrapper__infoBlockItem">{badge.title}</li>
-                </F:Collection>
+                </Neos.Fusion:Collection>
             </ul>
-            <div class="rContentWrapper__content" @key="content" @if.content={props.content}>
+            <div class="rContentWrapper__content" @key="content"
+                 @if.content={props.content}>
                 {props.content}
             </div>
-            <aside class="rContentWrapper__helpContent" @key="helpContent" @if.helpContent={props.helpContent}>
+            <aside class="rContentWrapper__helpContent" @key="helpContent"
+                   @if.helpContent={props.helpContent}>
                 <em>Help</em>: {props.helpContent}
             </aside>
-            <section class="rContentWrapper__children" @key="children" @if.children={props.children != null && Array.length(props.children) > 0}>
-                <F:Collection collection={props.children} itemName="child" @children="itemRenderer">
+            <section class="rContentWrapper__children" @key="children"
+                     @if.children={props.children != null && Array.length(props.children) > 0}>
+                <Neos.Fusion:Collection collection={props.children}
+                                        itemName="child"
+                                        @children="itemRenderer">
                     {child}
-                </F:Collection>
+                </Neos.Fusion:Collection>
             </section>
-            <div class="rContentWrapper__footer" @key="footer" @if.footer={props.footer}>
+            <div class="rContentWrapper__footer" @key="footer"
+                 @if.footer={props.footer}>
                 {props.footer}
             </div>
         </section>

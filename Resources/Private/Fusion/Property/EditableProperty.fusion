@@ -1,14 +1,12 @@
-namespace: F = Neos.Fusion
-
-prototype(Ttree.Writer:Property.Editable) < prototype(F:Component) {
+prototype(Ttree.Writer:Property.Editable) < prototype(Neos.Fusion:Component) {
     property = null
     propertyName = null
     content = null
     helpContent = null
     propertyValue = null
     editableNode = ${node}
-    children = F:RawArray
-    badges = F:RawArray
+    children = Neos.Fusion:RawArray
+    badges = Neos.Fusion:RawArray
 
     renderer = Ttree.Writer:ContentWrapper {
         propertyName = ${props.propertyName}
@@ -20,7 +18,7 @@ prototype(Ttree.Writer:Property.Editable) < prototype(F:Component) {
             @if.hasStructuredEditing = ${props.property != null && NodeTypeConfiguration.hasStructuredEditing(props.editableNode.nodeType, props.property)}
         }
 
-        content = F:Case {
+        content = Neos.Fusion:Case {
             rawContent {
                 condition = ${props.content != null}
                 renderer = ${props.content}
